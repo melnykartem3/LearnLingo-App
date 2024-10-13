@@ -1,0 +1,147 @@
+.aboutWrapper {
+  border-radius: 30px;
+  min-width: 150px;
+  min-height: 220px;
+  background: linear-gradient(
+    45deg,
+    #f4c550 25%,
+    #f4c550 25%,
+    #ffffff 25%,
+    #ffffff 50%,
+    #f4c550 50%,
+    #f4c550 75%,
+    #ffffff 75%,
+    #ffffff 100%
+  );
+  animation: animate_6810 15s linear infinite;
+  transition: 0.3s;
+  background-size: 60px 60px;
+  position: relative;
+  overflow: visible;
+}
+
+.wrapperInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 12px;
+  position: absolute;
+  width: 99%;
+  height: 96%;
+  left: 0.5%;
+  top: 2%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+@keyframes animate_6810 {
+  0% {
+    background-position: 0px;
+  }
+
+  100% {
+    background-position: 1000px;
+  }
+}
+
+.wrapper {
+  margin-bottom: 8px;
+}
+
+.generalWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.firstParagraph {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  color: #121417;
+}
+
+.secondParagraph {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: rgba(18, 20, 23, 0.7);
+}
+
+.secondParagraphAdd {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: rgba(18, 20, 23, 0.7);
+}
+
+@media screen and (min-width: 320px) {
+  .aboutWrapper {
+    min-height: 140px;
+  }
+
+  .wrapper:nth-child(4) {
+    margin-right: 6px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrapperInfo {
+    justify-content: center;
+  }
+
+  .generalWrapper {
+    display: flex;
+    gap: 40px;
+  }
+
+  .wrapper:nth-child(1) {
+    margin: 0;
+  }
+
+  .wrapper:nth-child(3) {
+    margin: 0;
+  }
+
+  .firstParagraph {
+    font-size: 28px;
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .aboutWrapper {
+    min-height: 116px;
+  }
+
+  .generalWrapper {
+    width: 1067px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .secondParagraph {
+    max-width: 96px;
+  }
+
+  .secondParagraphAdd {
+    width: 74px;
+  }
+}
