@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-
+import '../../auth/firebaseAuth.js';
+import { Toaster } from 'react-hot-toast';
 import SharedLayout from '../../components/SharedLayout/SharedLayout.jsx';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'));
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <Toaster />
     </SharedLayout>
   );
 }

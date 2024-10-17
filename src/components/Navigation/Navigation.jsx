@@ -2,8 +2,13 @@ import clsx from 'clsx';
 import { NavLink } from 'react-router-dom';
 import { CiLogin } from 'react-icons/ci';
 
-import UkraineIcon from '../../images/homePage/ukraine.svg';
-import logoIcon from '../../images/homePage/logo.svg';
+import UkraineIcon from '../../images/homePage/sprite.svg';
+import logoIcon from '../../images/homePage/sprite.svg';
+
+import RegistrationModal from '../RegistrationModal/RegistrationModal.jsx';
+import LogInModal from '../LogInModal/LogInModal.jsx';
+import LogOutModal from '../LogOutModal/LogOutModal.jsx';
+import { useModal } from '../../hooks/useModal.js';
 
 import css from './Navigation.module.css';
 
@@ -12,6 +17,8 @@ const buildLinkClass = ({ isActive }) => {
 };
 
 export default function Navigation() {
+  const { openSpecificModal, closeModal, isModalOpen } = useModal();
+
   return (
     <header className={css.header}>
       <nav className={css.navigation}>
@@ -34,21 +41,39 @@ export default function Navigation() {
           </NavLink>
         </div>
         <div className={css.buttonsWrapper}>
-          <button className={css.btnLogIn} type="button">
+          <button
+            className={css.btnLogIn}
+            type="button"
+            onClick={() => openSpecificModal('login')}
+          >
             <a href="#" className={css.btn2}>
               <span className={css.span}>Log in</span>
             </a>
           </button>
-          <button className={css.btnRegistration} type="button">
-              <span>Registration</span>
+          <button
+            className={css.btnRegistration}
+            type="button"
+            onClick={() => openSpecificModal('registration')}
+          >
+            <span>Registration</span>
           </button>
-          <button className={css.logOutBtn} type="button">
+          <button
+            className={css.logOutBtn}
+            type="button"
+            onClick={() => openSpecificModal('logout')}
+          >
             <span className={css.background}>
               <CiLogin className={css.logOutIcon} />
             </span>
           </button>
         </div>
       </nav>
+      <RegistrationModal
+        isOpen={isModalOpen('registration')}
+        onRequestClose={closeModal}
+      />
+      <LogInModal isOpen={isModalOpen('login')} onRequestClose={closeModal} />
+      <LogOutModal isOpen={isModalOpen('logout')} onRequestClose={closeModal} />
     </header>
   );
 }

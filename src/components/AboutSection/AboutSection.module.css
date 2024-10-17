@@ -27,10 +27,10 @@
   flex-wrap: wrap;
   padding: 12px;
   position: absolute;
-  width: 99%;
-  height: 96%;
-  left: 0.5%;
-  top: 2%;
+  width: 98.6%;
+  height: 96.5%;
+  left: 0.7%;
+  top: 1.6%;
   background-color: #ffffff;
   border-radius: 20px;
   transition: 0.3s;
@@ -98,6 +98,8 @@
   }
 
   .wrapperInfo {
+    width: 99%;
+    left: 0.5%;
     justify-content: center;
   }
 
@@ -130,6 +132,11 @@
     width: 1067px;
     display: flex;
     justify-content: space-between;
+  }
+
+  .wrapperInfo {
+    width: 99.7%;
+    left: 0.2%;
   }
 
   .wrapper {

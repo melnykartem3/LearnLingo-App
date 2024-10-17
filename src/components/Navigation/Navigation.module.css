@@ -102,7 +102,6 @@
 
 .btn2 .span {
   position: relative;
-  z-index: 3;
 }
 
 .btn2:active {
