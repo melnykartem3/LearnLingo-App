@@ -18,6 +18,7 @@ Table of Contents
 
 Figma Design:
 https://www.figma.com/design/dewf5jVviSTuWMMyU3d8Mc/Learn-Lingo?node-id=0-1&node-type=canvas&t=HnM1R8GTWMiFbwLy-0
+
 Documentation:
 https://docs.google.com/document/d/1ZB_MFgnnJj7t7OXtv5hESSwY6xRgVoACZKzgZczWc3Y/edit?tab=t.0
 
@@ -36,7 +37,7 @@ Installation
 
 1. Clone the repository:
 
-git clone https://github.com/yourusername/learn-lingo.git
+git clone https://github.com/melnykartem3/LearnLingo-App.git
 
 cd learn-lingo
 
