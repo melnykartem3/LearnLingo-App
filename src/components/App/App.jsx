@@ -1,8 +1,11 @@
-import { lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { lazy, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import '../../auth/firebaseAuth.js';
 import { Toaster } from 'react-hot-toast';
 import SharedLayout from '../../components/SharedLayout/SharedLayout.jsx';
+import TeachersLayout from '../TeachersLayout/TeachersLayout.jsx';
+import { useDispatch } from 'react-redux';
+import { loadFavorites } from '../../redux/favorites/slice.js';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'));
 const TeachersPage = lazy(() =>
@@ -16,15 +19,66 @@ const NotFoundPage = lazy(() =>
 );
 
 export default function App() {
+  const location = useLocation();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadFavorites());
+    if (location.pathname === '/teachers') {
+      document.body.style.backgroundColor = '#f8f8f8';
+    } else if (location.pathname === '/favorites') {
+      document.body.style.backgroundColor = '#f8f8f8';
+    } else {
+      document.body.style.backgroundColor = '#ffffff';
+    }
+  }, [location, dispatch]);
+
   return (
-    <SharedLayout>
+    <>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/teachers" element={<TeachersPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route
+          path="/"
+          element={
+            <SharedLayout>
+              <HomePage />
+            </SharedLayout>
+          }
+        />
+        <Route
+          path="/teachers"
+          element={
+            <TeachersLayout>
+              <TeachersPage />
+            </TeachersLayout>
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <TeachersLayout>
+              <FavoritesPage />
+            </TeachersLayout>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <SharedLayout>
+              <NotFoundPage />
+            </SharedLayout>
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <TeachersLayout>
+              <FavoritesPage />
+            </TeachersLayout>
+          }
+        />
       </Routes>
       <Toaster />
-    </SharedLayout>
+    </>
   );
 }

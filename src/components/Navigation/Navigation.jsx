@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { NavLink } from 'react-router-dom';
 import { CiLogin } from 'react-icons/ci';
+import { useSelector } from 'react-redux';
 
 import UkraineIcon from '../../images/homePage/sprite.svg';
 import logoIcon from '../../images/homePage/sprite.svg';
@@ -8,9 +9,11 @@ import logoIcon from '../../images/homePage/sprite.svg';
 import RegistrationModal from '../RegistrationModal/RegistrationModal.jsx';
 import LogInModal from '../LogInModal/LogInModal.jsx';
 import LogOutModal from '../LogOutModal/LogOutModal.jsx';
+import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
 import { useModal } from '../../hooks/useModal.js';
 
 import css from './Navigation.module.css';
+import { selectFavorites } from '../../redux/favorites/selectors.js';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.navLink, isActive && css.activeLink);
@@ -18,7 +21,8 @@ const buildLinkClass = ({ isActive }) => {
 
 export default function Navigation() {
   const { openSpecificModal, closeModal, isModalOpen } = useModal();
-
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isFavorites = useSelector(selectFavorites);
   return (
     <header className={css.header}>
       <nav className={css.navigation}>
@@ -39,6 +43,11 @@ export default function Navigation() {
           <NavLink to={'/teachers'} className={buildLinkClass}>
             Teachers
           </NavLink>
+          {isLoggedIn && isFavorites.length > 0 && (
+            <NavLink to={'/favorites'} className={buildLinkClass}>
+              Favorites
+            </NavLink>
+          )}
         </div>
         <div className={css.buttonsWrapper}>
           <button

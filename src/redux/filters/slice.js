@@ -6,14 +6,18 @@ const filtersSlice = createSlice({
   name: 'filters',
   initialState: initialState.filters,
   reducers: {
-    changeFilter(state, action) {
-      const { languages, levels, price } = action.payload;
-      state.languages = languages;
-      state.levels = levels;
-      state.price = price;
+    setLanguageFilter(state, action) {
+      state.languages = action.payload;
+    },
+    setLevelFilter(state, action) {
+      state.levels = action.payload;
+    },
+    setPriceFilter(state, action) {
+      state.price = action.payload;
     },
   },
 });
 
-export const { changeFilter } = filtersSlice.actions;
+export const { setLanguageFilter, setLevelFilter, setPriceFilter } =
+  filtersSlice.actions;
 export default filtersSlice.reducer;

@@ -1,0 +1,32 @@
+.filtersWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.languageSelect {
+  max-width: 221px;
+}
+
+.levelSelect {
+  min-width: 198px;
+}
+
+.priceSelect {
+  max-width: 124px;
+}
+
+@media screen and (min-width: 768px) {
+  .filtersWrapper {
+    flex-direction: row;
+  }
+
+  .languageSelect {
+    min-width: 221px;
+  }
+
+  .priceSelect {
+    min-width: 124px;
+  }
+}

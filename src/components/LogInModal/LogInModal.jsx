@@ -3,11 +3,12 @@ import Modal from 'react-modal';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
 import { BsXLg } from 'react-icons/bs';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import toast from 'react-hot-toast';
-
 import { logInUser } from '../../redux/auth/operations.js';
+import Button from '../Button/Button.jsx';
 import css from './LogInModal.module.css';
 
 Modal.setAppElement('#root');
@@ -26,6 +27,8 @@ const logInSchema = yup.object().shape({
 export default function LogInModal({ isOpen, onRequestClose }) {
   const [showPassword, setShowPassword] = useState(false);
 
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -37,12 +40,14 @@ export default function LogInModal({ isOpen, onRequestClose }) {
 
   const onSubmit = async data => {
     try {
-      const user = await logInUser(data.email, data.password);
+      await dispatch(
+        logInUser({ email: data.email, password: data.password }),
+      ).unwrap();
       toast.success('Logged in successfully!');
       onRequestClose();
       reset();
     } catch (error) {
-      toast.error('Email or password invalid!');
+      toast.error('The user does not exist or your password is incorrect!');
     }
   };
 
@@ -106,9 +111,9 @@ export default function LogInModal({ isOpen, onRequestClose }) {
             )}
           </div>
         </div>
-        <button type="submit" className={css.submitButton}>
-          Log In
-        </button>
+        <div className={css.btnWrapper}>
+          <Button description="Log in" variant="modal" type="submit" />
+        </div>
       </form>
     </Modal>
   );

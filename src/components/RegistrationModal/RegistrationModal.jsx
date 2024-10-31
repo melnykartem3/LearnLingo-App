@@ -3,12 +3,13 @@ import Modal from 'react-modal';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
-import { registerUser } from '../../redux/auth/operations.js';
 import { BsXLg } from 'react-icons/bs';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-
+import { registerUser } from '../../redux/auth/operations.js';
 import css from './RegistrationModal.module.css';
+import Button from '../Button/Button.jsx';
 
 Modal.setAppElement('#root');
 
@@ -27,6 +28,8 @@ const registrationSchema = yup.object().shape({
 export default function RegistrationModal({ isOpen, onRequestClose }) {
   const [showPassword, setShowPassword] = useState(false);
 
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -38,7 +41,14 @@ export default function RegistrationModal({ isOpen, onRequestClose }) {
 
   const onSubmit = async data => {
     try {
-      const user = await registerUser(data.name, data.email, data.password);
+      await dispatch(
+        registerUser({
+          name: data.name,
+          email: data.email,
+          password: data.password,
+        }),
+      ).unwrap();
+
       toast.success('User registered successfully');
       onRequestClose();
       reset();
@@ -120,9 +130,9 @@ export default function RegistrationModal({ isOpen, onRequestClose }) {
             )}
           </div>
         </div>
-        <button type="submit" className={css.submitButton}>
-          Sign Up
-        </button>
+        <div className={css.btnWrapper}>
+          <Button description="Sign up" variant="modal" type="submit" />
+        </div>
       </form>
     </Modal>
   );

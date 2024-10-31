@@ -1,0 +1,42 @@
+.homeLink {
+  text-decoration: none;
+  height: 24px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #dbae3c;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.homeIcon {
+  width: 16px;
+  height: 16px;
+  color: #dbae3c;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.homeLink:hover,
+.homeLink:focus {
+  color: #ffce42;
+  transform: scale(1.05);
+}
+
+.homeLink:hover .homeIcon,
+.homeLink:focus .homeIcon {
+  color: #ffce42;
+  transform: scale(1.2);
+}
+
+@media screen and (min-width: 768px) {
+  .homeLink {
+    font-size: 18px;
+  }
+
+  .homeIcon {
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -1,0 +1,26 @@
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 160px;
+}
+
+.notFoundText {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #8a8a89;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    align-items: center;
+  }
+}

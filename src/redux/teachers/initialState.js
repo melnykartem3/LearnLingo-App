@@ -12,15 +12,12 @@ export const initialState = {
     avatarUrl: '',
     lessonsInfo: '',
     conditions: [],
-    expirience: '',
+    experience: '',
   },
   filters: {
     languages: [],
     levels: [],
     price: '',
-  },
-  favorites: {
-    items: [],
   },
   isLoading: true,
   isError: null,

@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import homePageBackground from '../../images/homePage/homePageImageDesktop.jpg';
 import homePageBackground_2x from '../../images/homePage/homePageImageDesktop@2x.jpg';
 import css from './HeroSection.module.css';
@@ -16,9 +17,9 @@ export default function HeroSection() {
           highly qualified and experienced tutors.
         </p>
         <div className={css.btnWrapper}>
-          <button type="button" className={css.getStartedBtn}>
+          <NavLink to="/teachers" className={css.getStartedLink}>
             Get Started
-          </button>
+          </NavLink>
         </div>
       </div>
       <div className={css.visualWrapper}>

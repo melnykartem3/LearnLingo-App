@@ -1,9 +1,23 @@
+.loaderContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
 .spinner {
   --size: 30px;
   --first: #005bba;
   --second: #fed500;
   width: 100px;
   height: 100px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   animation: spin 3s linear infinite;
 }

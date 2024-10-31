@@ -1,0 +1,366 @@
+.avatarWrapper {
+  border-radius: 100px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 3px solid #fbe9ba;
+  background-color: #ffffff;
+  position: absolute;
+}
+
+.favoriteBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+}
+
+.favoriteIcon {
+  width: 100%;
+  height: 100%;
+}
+
+.activeIcon {
+  width: 100%;
+  height: 100%;
+  color: #f4c550;
+}
+
+.onlineIcon {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  color: #38cd3e;
+  border: 1px solid #ffffff;
+  border-radius: 100%;
+}
+
+.avatar {
+  border-radius: 100px;
+}
+
+.generalInfoWrapper {
+  position: relative;
+}
+
+.aboutWrapper {
+  margin-bottom: 16px;
+  padding-left: 64px;
+}
+
+.desc {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #8a8a89;
+}
+
+.fullnameTitle {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+  margin-top: 8px;
+  color: #121417;
+}
+
+.lessonsWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.lessonsSpan {
+  margin-left: 4px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #121417;
+}
+
+.infoSpan {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #121417;
+}
+
+.ratingStar {
+  width: 16px;
+  height: 16px;
+  color: #ffc531;
+}
+
+.priceSpan {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #38cd3e;
+}
+
+.wrapperDesc {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.descSpan {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  position: relative;
+  cursor: pointer;
+  color: #121417;
+}
+
+.descSpan::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #121417;
+}
+
+.descInfo {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #121417;
+}
+
+.levelsList {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.levelsListItem:first-child {
+  background-color: #f4c550;
+}
+
+.levelsListItem {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  border-radius: 35px;
+  padding: 8px 12px;
+  color: #121417;
+  border: 1px solid rgba(18, 20, 23, 0.2);
+}
+
+.experienceDesc {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  color: #121417;
+}
+
+.reviewerWrapper {
+  display: flex;
+}
+
+.reviewerAvatar {
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  background-color: #fbe9ba;
+}
+
+.reviewInfoWrapper {
+  margin-bottom: 16px;
+}
+
+.ratingSpan {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  margin-left: 8px;
+  color: #121417;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 20px;
+}
+
+.toastContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.toastContainer:hover {
+  background-color: #f1f1f1;
+}
+
+.toastContainer .link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 3px;
+}
+
+.toastContainer .link:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+  .avatarWrapper {
+    width: 88px;
+    height: 88px;
+  }
+
+  .wrapperDesc {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 48px;
+  }
+
+  .firstWrapper {
+    display: flex;
+    padding-left: 112px;
+  }
+
+  .aboutWrapper {
+    padding-left: 0;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .onlineIcon {
+    width: 8px;
+    height: 8px;
+    top: 16px;
+    right: 14px;
+  }
+
+  .generalInfoWrapper {
+    display: flex;
+    gap: 16px;
+  }
+
+  .infoWrapper {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 20px;
+    max-height: 36px;
+  }
+
+  .levelsList {
+    margin-top: 32px;
+  }
+
+  .favoriteBtn {
+    width: 26px;
+    height: 26px;
+    top: 24px;
+    right: 24px;
+  }
+
+  .lessonsWrapper {
+    position: relative;
+    padding-right: 16px;
+  }
+
+  .lessonsWrapper:nth-of-type(1)::after,
+  .lessonsWrapper:nth-of-type(3)::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 0;
+    height: 72%;
+    width: 1px;
+    background-color: #121417;
+  }
+
+  .fullnameTitle {
+    width: 122px;
+  }
+
+  .aboutWrapper {
+    margin-bottom: 0;
+  }
+
+  .btnWrapper {
+    justify-content: start;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .avatarWrapper {
+    width: 120px;
+    height: 120px;
+    margin-right: 48px;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+  }
+
+  .wrapperDesc {
+    margin-top: 32px;
+  }
+
+  .btnWrapper {
+    margin-top: 32px;
+  }
+
+  .onlineIcon {
+    width: 12px;
+    height: 12px;
+    top: 18px;
+    right: 18px;
+  }
+
+  .firstWrapper {
+    padding-left: 172px;
+  }
+
+  .generalInfoWrapper {
+    gap: 150px;
+  }
+
+  .lessonsWrapper:nth-of-type(2)::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 0;
+    height: 72%;
+    width: 1px;
+    background-color: #121417;
+  }
+
+  .secondGeneralWrapper {
+    padding-left: 172px;
+  }
+}
