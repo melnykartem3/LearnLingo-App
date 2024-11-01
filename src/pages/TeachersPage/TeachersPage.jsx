@@ -6,8 +6,8 @@ import { fetchTeachers } from '../../redux/teachers/operations.js';
 import Loader from '../../components/Loader/Loader.jsx';
 import Error from '../../components/Error/Error.jsx';
 import TeachersList from '../../components/TeachersList/TeachersList.jsx';
+import Navigation from '../../components/Navigation/Navigation.jsx';
 import Filters from '../../components/Filters/Filters.jsx';
-import HomeNavigate from '../../components/HomeNavigate/HomeNavigate.jsx';
 import Button from '../../components/Button/Button.jsx';
 import css from './TeachersPage.module.css';
 
@@ -55,9 +55,11 @@ export default function TeachersPage() {
     <div className={css.teachersPage}>
       {displayedTeachers.length > 0 && (
         <>
+          <div className={css.navigationWrapper}>
+            <Navigation />
+          </div>
           <div className={css.wrapper}>
             <Filters />
-            <HomeNavigate />
           </div>
           <TeachersList teachers={displayedTeachers} />
         </>

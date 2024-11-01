@@ -7,6 +7,13 @@
   width: 160px;
 }
 
+.navigationWrapper {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
 .notFoundText {
   font-weight: 500;
   font-size: 24px;
@@ -14,13 +21,14 @@
   color: #8a8a89;
 }
 
-.wrapper {
-  display: flex;
-  justify-content: space-between;
+@media screen and (min-width: 768px) {
+  .navigationWrapper {
+    padding: 8px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .wrapper {
-    align-items: center;
+  .navigationWrapper {
+    padding: 16px;
   }
 }

@@ -50,31 +50,37 @@ export default function Navigation() {
           )}
         </div>
         <div className={css.buttonsWrapper}>
-          <button
-            className={css.btnLogIn}
-            type="button"
-            onClick={() => openSpecificModal('login')}
-          >
-            <a href="#" className={css.btn2}>
-              <span className={css.span}>Log in</span>
-            </a>
-          </button>
-          <button
-            className={css.btnRegistration}
-            type="button"
-            onClick={() => openSpecificModal('registration')}
-          >
-            <span>Registration</span>
-          </button>
-          <button
-            className={css.logOutBtn}
-            type="button"
-            onClick={() => openSpecificModal('logout')}
-          >
-            <span className={css.background}>
-              <CiLogin className={css.logOutIcon} />
-            </span>
-          </button>
+          {!isLoggedIn && (
+            <button
+              className={css.btnLogIn}
+              type="button"
+              onClick={() => openSpecificModal('login')}
+            >
+              <a href="#" className={css.btn2}>
+                <span className={css.span}>Log in</span>
+              </a>
+            </button>
+          )}
+          {!isLoggedIn && (
+            <button
+              className={css.btnRegistration}
+              type="button"
+              onClick={() => openSpecificModal('registration')}
+            >
+              <span>Registration</span>
+            </button>
+          )}
+          {isLoggedIn && (
+            <button
+              className={css.logOutBtn}
+              type="button"
+              onClick={() => openSpecificModal('logout')}
+            >
+              <span className={css.background}>
+                <CiLogin className={css.logOutIcon} />
+              </span>
+            </button>
+          )}
         </div>
       </nav>
       <RegistrationModal

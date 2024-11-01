@@ -39,7 +39,9 @@ export default function Teacher({ teacher }) {
     if (!isActive) {
       toast.custom(t => (
         <div className={css.toastContainer}>
-          <span>You can see your favorite teachers on the </span>
+          <span className={css.spanToast}>
+            You can see your favorite teachers on the{' '}
+          </span>
           <Link
             to="/favorites"
             className={css.link}
