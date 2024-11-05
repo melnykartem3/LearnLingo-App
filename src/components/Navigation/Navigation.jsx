@@ -13,7 +13,6 @@ import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
 import { useModal } from '../../hooks/useModal.js';
 
 import css from './Navigation.module.css';
-import { selectFavorites } from '../../redux/favorites/selectors.js';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.navLink, isActive && css.activeLink);
@@ -22,7 +21,6 @@ const buildLinkClass = ({ isActive }) => {
 export default function Navigation() {
   const { openSpecificModal, closeModal, isModalOpen } = useModal();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isFavorites = useSelector(selectFavorites);
   return (
     <header className={css.header}>
       <nav className={css.navigation}>
@@ -43,7 +41,7 @@ export default function Navigation() {
           <NavLink to={'/teachers'} className={buildLinkClass}>
             Teachers
           </NavLink>
-          {isLoggedIn && isFavorites.length > 0 && (
+          {isLoggedIn && (
             <NavLink to={'/favorites'} className={buildLinkClass}>
               Favorites
             </NavLink>

@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsError, selectIsLoading } from '../../redux/auth/selectors.js';
+import {
+  selectIsError,
+  selectIsLoading,
+} from '../../redux/teachers/selectors.js';
 import { selectFilteredTeachers } from '../../redux/filters/selectors.js';
 import { fetchTeachers } from '../../redux/teachers/operations.js';
 import Loader from '../../components/Loader/Loader.jsx';

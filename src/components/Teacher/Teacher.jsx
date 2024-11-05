@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import clsx from 'clsx';
 import { IoIosStar } from 'react-icons/io';
 import { FaRegHeart, FaHeart, FaCircle } from 'react-icons/fa';
 import { IoBookOutline } from 'react-icons/io5';
@@ -66,7 +67,10 @@ export default function Teacher({ teacher }) {
       </div>
       <button
         onClick={handleFavorite}
-        className={css.favoriteBtn}
+        className={clsx(css.favoriteBtn, {
+          [css.hideFavoriteBtn]:
+            isModalOpen('login') || isModalOpen('bookTrial'),
+        })}
         aria-label={isActive ? 'Remove from favorites' : 'Add to favorites'}
       >
         {isActive ? (
