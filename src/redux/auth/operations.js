@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { getDatabase, ref, set } from 'firebase/database';
 
@@ -20,6 +21,7 @@ export const registerUser = createAsyncThunk(
         password,
       );
       const user = userCredential.user;
+
       await set(ref(db, 'users/'), {
         name: name,
         email: email,
@@ -46,6 +48,7 @@ export const logInUser = createAsyncThunk(
         password,
       );
       const user = userCredential.user;
+
       return {
         email: user.email,
       };
@@ -63,6 +66,26 @@ export const logOutUser = createAsyncThunk(
       await signOut(auth);
     } catch (error) {
       console.error('Error during logout:', error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const reAuthenticateUser = createAsyncThunk(
+  'auth/reAuthenticateUser',
+  async (_, thunkAPI) => {
+    try {
+      onAuthStateChanged(auth, user => {
+        if (user) {
+          return thunkAPI.fulfillWithValue({
+            email: user.email,
+            name: user.name,
+          });
+        } else {
+          return thunkAPI.rejectWithValue('User is not authenticated');
+        }
+      });
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   },

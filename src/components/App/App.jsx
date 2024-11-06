@@ -6,6 +6,7 @@ import SharedLayout from '../../components/SharedLayout/SharedLayout.jsx';
 import TeachersLayout from '../TeachersLayout/TeachersLayout.jsx';
 import { useDispatch } from 'react-redux';
 import { loadFavorites } from '../../redux/favorites/slice.js';
+import { reAuthenticateUser } from '../../redux/auth/operations.js';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'));
 const TeachersPage = lazy(() =>
@@ -20,10 +21,10 @@ const NotFoundPage = lazy(() =>
 
 export default function App() {
   const location = useLocation();
-
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(reAuthenticateUser());
     dispatch(loadFavorites());
     if (location.pathname === '/teachers') {
       document.body.style.backgroundColor = '#f8f8f8';
